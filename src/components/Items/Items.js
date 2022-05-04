@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Item from '../Item/Item';
 
 const Items = () => {
@@ -9,6 +10,8 @@ const Items = () => {
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])
+
+
     return (
         <div className=' container mx-auto'>
             <h2 className='text-center'>This is from items {items.length}</h2>
@@ -19,6 +22,7 @@ const Items = () => {
                     ></Item>)
                 }
             </div>
+            <Link to='/manageItems' className='btn btn-primary w-25 mx-auto my-5'>Manage Inventory</Link>
         </div>
     );
 };

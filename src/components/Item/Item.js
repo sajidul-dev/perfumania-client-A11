@@ -1,7 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Item = ({ item }) => {
-    console.log(item);
+    const navigate = useNavigate()
+
+    const handleUpdate = (id) => {
+        navigate('/itemDetails')
+    }
+
     return (
         <div className='col-lg-4 col-md-6 col-sm-12'>
             <div className='row'>
@@ -14,7 +20,7 @@ const Item = ({ item }) => {
                     <h4>Price:{item?.price}</h4>
                     <p className='fw-bold'>Quantity:{item?.quantity}</p>
                     <p>Supplier:{item?.supplierName}</p>
-                    <p>About:{item.about.slice(0, 100)}</p>
+                    <p>About:{item?.about.slice(0, 100)}</p>
                     <button>Update</button>
                 </div>
             </div>
