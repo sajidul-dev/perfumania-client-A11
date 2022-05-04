@@ -11,6 +11,7 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import ManageItems from './components/ManageItems/ManageItems';
+import ItemDetails from './components/ItemDetails/ItemDetails';
 function App() {
   return (
     <div>
@@ -23,6 +24,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='/manageItems' element={<ManageItems></ManageItems>}></Route>
+        <Route path='/item/:itemId' element={<ItemDetails></ItemDetails>}></Route>
         <Route path='/*' element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
