@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import auth from '../../firebase.init';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
@@ -15,14 +15,26 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(
+        auth
+    );
+
     const handleLogin = e => {
         e.preventDefault()
         const email = emailRef.current.value
         const password = passwordRef.current.value
         signInWithEmailAndPassword(email, password)
     }
+    if (user) {
+        console.log('log in successful');
+    }
 
-
+    const resetPassword = async () => {
+        const email = emailRef.current.value
+        if (email) {
+            await sendPasswordResetEmail(email)
+        }
+    }
 
 
     return (
@@ -46,6 +58,7 @@ const Login = () => {
 
             </Form>
             <p>New in ...<Link to='/signup'>SignUp</Link></p>
+            <p>Forget password? <button onClick={resetPassword} className='btn btn-primary'>reset password</button></p>
         </div>
     );
 };
