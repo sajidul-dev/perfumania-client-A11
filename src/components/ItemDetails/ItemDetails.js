@@ -10,11 +10,11 @@ const ItemDetails = () => {
             .then(res => res.json())
             .then(data => setItem(data))
     }, [itemId])
-    console.log(item);
     return (
         <div>
             <h1>Hello</h1>
             <img src={item.picture} alt="" />
+            <p>ID: {item._id}</p>
         </div>
     );
 };

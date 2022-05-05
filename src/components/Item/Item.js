@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Item = ({ item }) => {
     const { name, picture, price, quantity, supplierName, about, _id } = item
@@ -24,7 +24,6 @@ const Item = ({ item }) => {
                     <p>Supplier:{supplierName}</p>
                     <p>About:{about.slice(0, 100)}</p>
                     <button onClick={() => handleUpdate(_id)}>Update</button>
-                    <Link to='/item'></Link>
                 </div>
             </div>
         </div>
