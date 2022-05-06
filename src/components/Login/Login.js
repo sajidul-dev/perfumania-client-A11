@@ -2,11 +2,15 @@ import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Loading from '../Shared/Loading';
 
 const Login = () => {
     const emailRef = useRef('')
     const passwordRef = useRef('')
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/";
 
     const [
         signInWithEmailAndPassword,
@@ -25,8 +29,11 @@ const Login = () => {
         const password = passwordRef.current.value
         signInWithEmailAndPassword(email, password)
     }
+    if (loading) {
+        return <Loading></Loading>
+    }
     if (user) {
-        console.log('log in successful');
+        navigate(from, { replace: true });
     }
 
     const resetPassword = async () => {
