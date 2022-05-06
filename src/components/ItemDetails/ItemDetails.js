@@ -28,7 +28,7 @@ const ItemDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.success('Update quantity successfully', { id: 'Sajid' })
+                toast.success('Product Delivered', { id: 'Sajid' })
             })
 
     }

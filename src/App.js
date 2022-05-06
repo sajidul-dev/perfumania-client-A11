@@ -13,6 +13,8 @@ import RequireAuth from './components/RequireAuth/RequireAuth';
 import ManageItems from './components/ManageItems/ManageItems';
 import ItemDetails from './components/ItemDetails/ItemDetails';
 import { Toaster } from 'react-hot-toast';
+import MyItems from './components/MyItems/MyItems';
+import AddItem from './components/AddItem/AddItem';
 function App() {
   return (
     <div>
@@ -24,7 +26,13 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
-        <Route path='/manageItems' element={<ManageItems></ManageItems>}></Route>
+        <Route path='/myitems' element={<MyItems></MyItems>}></Route>
+        <Route path='/additem' element={<AddItem></AddItem>}></Route>
+        <Route path='/manageItems' element={
+          <RequireAuth>
+            <ManageItems></ManageItems>
+          </RequireAuth>
+        }></Route>
         <Route path='/item/:itemId' element={
           <RequireAuth>
             <ItemDetails></ItemDetails>

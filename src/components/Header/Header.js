@@ -16,6 +16,7 @@ const Header = () => {
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
                     <NavLink to='/'
+                        className='me-3'
                         style={({ isActive }) => {
                             return {
                                 display: "block",
@@ -30,8 +31,9 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto">
                             <NavLink
+
                                 to='/blogs'
-                                className={({ isActive }) => isActive ? 'text-primary' : 'text-white'}
+                                className={({ isActive }) => isActive ? 'text-primary me-3' : 'text-white me-3'}
 
                             >
                                 Blogs
@@ -39,20 +41,52 @@ const Header = () => {
 
                         </Nav>
                         <Nav>
-                            <NavLink
-                                to='/about'
-                                style={({ isActive }) => {
-                                    return {
-                                        display: "block",
-                                        margin: "1rem 0",
-                                        color: isActive ? "##0D6EFD" : "white",
-                                    };
-                                }}
+                            {user && <>
+                                <NavLink
+                                    className='me-3'
+                                    to='/myitems'
+                                    style={({ isActive }) => {
+                                        return {
+                                            display: "block",
+                                            margin: "1rem 0",
+                                            color: isActive ? "##0D6EFD" : "white",
+                                        };
+                                    }}
 
-                            >
-                                About
-                            </NavLink>
+                                >
+                                    My Items
+                                </NavLink>
+                                <NavLink
+                                    className='me-3'
+                                    to='/additem'
+                                    style={({ isActive }) => {
+                                        return {
+                                            display: "block",
+                                            margin: "1rem 0",
+                                            color: isActive ? "##0D6EFD" : "white",
+                                        };
+                                    }}
+
+                                >
+                                    Add Item
+                                </NavLink>
+                                <NavLink
+                                    className='me-3'
+                                    to='/manageitems'
+                                    style={({ isActive }) => {
+                                        return {
+                                            display: "block",
+                                            margin: "1rem 0",
+                                            color: isActive ? "##0D6EFD" : "white",
+                                        };
+                                    }}
+
+                                >
+                                    Manage Items
+                                </NavLink>
+                            </>}
                             {user ? <button onClick={handleSignOut} className='btn btn-primary'>Sign Out</button> : <NavLink
+                                className='me-3'
                                 to='/login'
                                 style={({ isActive }) => {
                                     return {
