@@ -6,7 +6,7 @@ const ManageItems = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/allItems')
+        fetch('https://secure-retreat-97587.herokuapp.com/allItems')
             .then(res => res.json())
             .then(data => setAllItems(data))
     }, [])

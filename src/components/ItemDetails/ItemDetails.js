@@ -6,7 +6,7 @@ const ItemDetails = () => {
     const { itemId } = useParams()
     const [item, setItem] = useState([])
     useEffect(() => {
-        const url = `http://localhost:5000/item/${itemId}`
+        const url = `https://secure-retreat-97587.herokuapp.com/item/${itemId}`
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data))
@@ -17,7 +17,7 @@ const ItemDetails = () => {
         const itemQuantity = item.quantity
         const updateQuantity = parseInt(itemQuantity) - 1
         const quantity = { ...item, quantity: updateQuantity }
-        const url = `http://localhost:5000/item/${id}`
+        const url = `https://secure-retreat-97587.herokuapp.com/item/${id}`
         fetch(url, {
             method: "PUT",
             headers: {
