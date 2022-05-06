@@ -12,6 +12,7 @@ import Signup from './components/Signup/Signup';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import ManageItems from './components/ManageItems/ManageItems';
 import ItemDetails from './components/ItemDetails/ItemDetails';
+import { Toaster } from 'react-hot-toast';
 function App() {
   return (
     <div>
@@ -31,6 +32,7 @@ function App() {
         }></Route>
         <Route path='/*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Toaster></Toaster>
     </div>
   );
 }

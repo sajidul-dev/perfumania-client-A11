@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const Signup = () => {
     const emailRef = useRef('')
@@ -17,7 +19,7 @@ const Signup = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const handleSignup = e => {
         e.preventDefault()
@@ -26,8 +28,12 @@ const Signup = () => {
         createUserWithEmailAndPassword(email, password)
 
     }
+    if (loading) {
+        return <Loading></Loading>
+    }
     if (user) {
         navigate(from, { replace: true });
+        toast.success('Sign Up successful', { id: 'sajid' })
     }
     return (
         <div>
