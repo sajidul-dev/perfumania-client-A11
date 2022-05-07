@@ -15,6 +15,7 @@ import ItemDetails from './components/ItemDetails/ItemDetails';
 import { Toaster } from 'react-hot-toast';
 import MyItems from './components/MyItems/MyItems';
 import AddItem from './components/AddItem/AddItem';
+import Footer from './components/Footer/Footer';
 function App() {
   return (
     <div>
@@ -40,6 +41,7 @@ function App() {
         }></Route>
         <Route path='/*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
       <Toaster></Toaster>
     </div>
   );

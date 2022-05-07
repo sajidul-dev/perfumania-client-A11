@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
-import ItemsTable from '../Table/ItemsTable';
 
 const ManageItems = () => {
     const [allItems, setAllItems] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
 
@@ -14,46 +16,66 @@ const ManageItems = () => {
                 <Loading></Loading>
                 setAllItems(data)
             })
-    }, [])
+    }, [allItems])
+
+    const handleUpdate = (id) => {
+        navigate(`/item/${id}`)
+    }
+
+    const handleDelete = (id) => {
+        const confirm = window.confirm("Are you sure?")
+        if (confirm) {
+            const url = `https://secure-retreat-97587.herokuapp.com/item/${id}`
+            fetch(url, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    toast.success('Item deleted')
+                })
+        }
+    }
 
     return (
         <div className='container mt-5'>
-            {/* <Table responsive>
+            <Table responsive>
                 <thead>
                     <tr>
-                        <th>#</th>
+
                         <th>Image</th>
-                        <td>Name</td>
-                        <td>Price</td>
-                        <td>Qunatity</td>
-                        <td>Supplier</td>
-                        <td>About</td>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Qunatity</th>
+                        <th>Supplier</th>
+                        <th>About</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>{allItems.map(item => item?.name)}</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        {Array.from({ length: 12 }).map((_, index) => (
-                            <td key={index}>Table cell {index}</td>
-                        ))}
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        {Array.from({ length: 12 }).map((_, index) => (
-                            <td key={index}>Table cell {index}</td>
-                        ))}
-                    </tr>
+                    {
+                        allItems.map(item =>
+                            <>
+
+                                <tr>
+                                    <td><img className='rounded-circle w-25' src={item?.picture} alt="" /></td>
+                                    <td>{item?.name}</td>
+                                    <td>{item?.price}</td>
+                                    <td>{item?.quantity}</td>
+                                    <td>{item?.supplierName}</td>
+                                    <td>{item?.about.slice(0, 50)}...</td>
+                                    <td><button onClick={() => handleUpdate(item?._id)} className='btn btn-primary'>Update</button></td>
+                                    <td><button onClick={() => handleDelete(item?._id)} className='btn btn-danger'>Delete</button></td>
+                                </tr>
+                            </>
+                        )
+                    }
+
                 </tbody>
-            </Table> */}
+            </Table>
 
 
-            {
+            {/* {
                 allItems.map(item => <ItemsTable key={item._id} item={item}></ItemsTable>)
-            }
+            } */}
             {/* <ItemsTable></ItemsTable> */}
         </div>
     );

@@ -24,9 +24,9 @@ const AddItem = () => {
         const about = descriptionRef.current.value
         const price = priceRef.current.value
         const quantity = quantityRef.current.value
-        const supplier = supplierRef.current.value
+        const supplierName = supplierRef.current.value
 
-        const newItem = { email, name, price, picture, about, supplier, quantity }
+        const newItem = { email, name, price, picture, about, supplierName, quantity }
         console.log(newItem);
         const url = 'https://secure-retreat-97587.herokuapp.com/addItem'
         console.log(url);
