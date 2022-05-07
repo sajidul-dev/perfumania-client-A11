@@ -21,7 +21,6 @@ const Items = () => {
 
     return (
         <div className=' container mx-auto'>
-            <h2 className='text-center'>This is from items {items.length}</h2>
             <div className='row g-5 mt-5'>
                 {
 
@@ -30,7 +29,9 @@ const Items = () => {
                     ></Item>)
                 }
             </div>
-            <Link to='/manageItems' className='btn btn-primary w-25 mx-auto my-5'>Manage Inventory</Link>
+            <div className='d-flex justify-content-center align-items-center'>
+                <Link to='/manageItems' className='btn btn-primary w-25  my-5'>Manage Inventory</Link>
+            </div>
         </div>
     );
 };

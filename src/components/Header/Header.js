@@ -1,8 +1,8 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Header = () => {
@@ -12,98 +12,31 @@ const Header = () => {
         signOut(auth)
     }
     return (
-        <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" sticky='top' variant="dark">
-                <Container>
-                    <NavLink to='/'
-                        className='me-3'
-                        style={({ isActive }) => {
-                            return {
-                                display: "block",
-                                margin: "1rem 0",
-                                color: isActive ? "red" : "",
-                            };
-                        }}
-                    >
-                        Home
-                    </NavLink>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="ms-auto">
-                            <NavLink
 
-                                to='/blogs'
-                                className={({ isActive }) => isActive ? 'text-primary me-3' : 'text-white me-3'}
+        <Navbar collapseOnSelect expand="lg" bg="white" sticky='top'>
+            <Container>
+                <Navbar.Brand className='text-dark fw-bold mr-3' as={Link} to="/">PERFUMANIA</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav>
+                        <NavLink to='/home' className={({ isActive }) => isActive ? "text-primary text-decoration-none m-3" : "text-dark text-decoration-none m-3"} >Home</NavLink>
+                        <NavLink to='/blogs' className={({ isActive }) => isActive ? "text-primary text-decoration-none m-3" : "text-dark text-decoration-none m-3"} >Blogs</NavLink>
+                    </Nav>
+                    <Nav className='ms-auto'>
 
-                            >
-                                Blogs
-                            </NavLink>
+                        {user && <>
+                            <NavLink to='/myitems' className={({ isActive }) => isActive ? "text-primary text-decoration-none m-3" : "text-dark text-decoration-none m-3"} >My Items</NavLink>
 
-                        </Nav>
-                        <Nav>
-                            {user && <>
-                                <NavLink
-                                    className='me-3'
-                                    to='/myitems'
-                                    style={({ isActive }) => {
-                                        return {
-                                            display: "block",
-                                            margin: "1rem 0",
-                                            color: isActive ? "##0D6EFD" : "white",
-                                        };
-                                    }}
+                            <NavLink to='/additem' className={({ isActive }) => isActive ? "text-primary text-decoration-none m-3" : "text-dark text-decoration-none m-3"} >Add Item</NavLink>
 
-                                >
-                                    My Items
-                                </NavLink>
-                                <NavLink
-                                    className='me-3'
-                                    to='/additem'
-                                    style={({ isActive }) => {
-                                        return {
-                                            display: "block",
-                                            margin: "1rem 0",
-                                            color: isActive ? "##0D6EFD" : "white",
-                                        };
-                                    }}
+                            <NavLink to='/manageitems' className={({ isActive }) => isActive ? "text-primary text-decoration-none m-3" : "text-dark text-decoration-none m-3"} >Manage Items</NavLink>
 
-                                >
-                                    Add Item
-                                </NavLink>
-                                <NavLink
-                                    className='me-3'
-                                    to='/manageitems'
-                                    style={({ isActive }) => {
-                                        return {
-                                            display: "block",
-                                            margin: "1rem 0",
-                                            color: isActive ? "##0D6EFD" : "white",
-                                        };
-                                    }}
-
-                                >
-                                    Manage Items
-                                </NavLink>
-                            </>}
-                            {user ? <button onClick={handleSignOut} className='btn btn-primary'>Sign Out</button> : <NavLink
-                                className='me-3'
-                                to='/login'
-                                style={({ isActive }) => {
-                                    return {
-                                        display: "block",
-                                        margin: "1rem 0",
-                                        color: isActive ? "red" : "",
-                                    };
-                                }}
-
-                            >
-                                Login
-                            </NavLink>}
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </div>
+                        </>}
+                        {user ? <button onClick={handleSignOut} className='btn btn-info rounded-pill py-0'>Sign Out</button> : <NavLink to='/login' className={({ isActive }) => isActive ? "text-primary text-decoration-none m-3" : "text-dark text-decoration-none m-3"} >Login</NavLink>}
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 };
 

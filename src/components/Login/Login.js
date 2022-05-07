@@ -62,16 +62,15 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control ref={passwordRef} type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
                 <Button variant="primary w-50 mx-auto d-block" type="submit">
                     Login
                 </Button>
 
             </Form>
-            <p>New in ...<Link to='/signup'>SignUp</Link></p>
-            <p>Forget password? <button onClick={resetPassword} className='btn btn-primary'>reset password</button></p>
+            <div className='mt-3'>
+                <p className='text-center'>New to Perfumania? <Link to='/signup'>SignUp</Link></p>
+                <p className='text-center'>Forget password?<button onClick={resetPassword} className='text-primary text-decoration-none btn btn-link'>reset password</button></p>
+            </div>
         </div>
     );
 };

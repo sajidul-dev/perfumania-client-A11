@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
@@ -13,6 +13,7 @@ const Signup = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || "/";
+    const [agree, setAgree] = useState(false)
 
 
     const [
@@ -59,13 +60,13 @@ const Signup = () => {
                     <Form.Control ref={passwordRef} type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                    <Form.Check className={agree ? "text-primary" : "text-danger"} onClick={() => setAgree(!agree)} type="checkbox" label="Agree terms and condition" />
                 </Form.Group>
-                <Button variant="primary w-50 mx-auto d-block" type="submit">
+                <Button disabled={!agree} variant="primary w-50 mx-auto d-block" type="submit">
                     Sign Up
                 </Button>
             </Form>
-            <p>Already in ... <Link to='/login'>Login</Link></p>
+            <p className='text-center mt-3'>Already in Perfumania? <Link to='/login'>Login</Link></p>
         </div>
     );
 };

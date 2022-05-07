@@ -18,7 +18,7 @@ const ItemsSummary = () => {
                 <div className='d-flex justify-content-center align-items-center' >
                     <FontAwesomeIcon className=' font-icon text-white' icon={faMoneyBill}></FontAwesomeIcon>
                 </div>
-                <h1 className='text-center text-white'>2,000</h1>
+                <h1 className='text-center text-white'>7,50,000</h1>
                 <p className='text-white text-center'>Amount Sold</p>
 
             </div>
@@ -26,14 +26,14 @@ const ItemsSummary = () => {
                 <div className='d-flex justify-content-center align-items-center'>
                     <FontAwesomeIcon className=' font-icon text-white' icon={faUsers}></FontAwesomeIcon>
                 </div>
-                <h1 className='text-center text-white'>2,000</h1>
+                <h1 className='text-center text-white'>100%</h1>
                 <p className='text-white text-center'>Customer Satisfaction</p>
             </div>
             <div className='p-4 col-lg-3'>
                 <div className='d-flex justify-content-center align-items-center'>
                     <FontAwesomeIcon className=' font-icon text-white' icon={faFireFlameCurved}></FontAwesomeIcon>
                 </div>
-                <h1 className='text-center text-white'>10+ products</h1>
+                <h1 className='text-center text-white'>10+ Products</h1>
                 <p className='text-center text-white'>Hot Deals</p>
             </div>
 

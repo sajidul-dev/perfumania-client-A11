@@ -27,9 +27,7 @@ const AddItem = () => {
         const supplierName = supplierRef.current.value
 
         const newItem = { email, name, price, picture, about, supplierName, quantity }
-        console.log(newItem);
         const url = 'https://secure-retreat-97587.herokuapp.com/addItem'
-        console.log(url);
         fetch(url, {
             method: "POST",
             headers: {
@@ -41,6 +39,7 @@ const AddItem = () => {
             .then(data => {
                 toast.success('Item added')
             })
+        e.target.reset()
 
     }
 

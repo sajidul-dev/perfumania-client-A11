@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import Item from '../Item/Item';
 
 const MyItems = () => {
     const [user] = useAuthState(auth)
@@ -15,7 +16,12 @@ const MyItems = () => {
     })
     return (
         <div>
-            <h2>This is my items {userItem.length}</h2>
+            <h3 className='text-center my-5'>Your Item</h3>
+            <div className='row container g-5'>
+                {
+                    userItem ? userItem.map(item => <Item key={item?._id} item={item}></Item>) : <h2>Please Add Somthing</h2>
+                }
+            </div>
         </div>
     );
 };
