@@ -6,6 +6,7 @@ import Loading from '../Shared/Loading';
 
 const ManageItems = () => {
     const [allItems, setAllItems] = useState([])
+    const [dataLoaded, setDataLoaded] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -13,13 +14,19 @@ const ManageItems = () => {
         fetch('https://secure-retreat-97587.herokuapp.com/allItems')
             .then(res => res.json())
             .then(data => {
-                <Loading></Loading>
+                setDataLoaded(true)
                 setAllItems(data)
             })
     }, [allItems])
-
+    if (!dataLoaded) {
+        return <Loading></Loading>
+    }
     const handleUpdate = (id) => {
         navigate(`/item/${id}`)
+    }
+
+    const handleAddItem = () => {
+        navigate('/additem')
     }
 
     const handleDelete = (id) => {
@@ -38,6 +45,9 @@ const ManageItems = () => {
 
     return (
         <div className='container mt-5'>
+            <div className='d-flex justify-content-end align-items-center'>
+                <button onClick={handleAddItem} className='btn btn-info rounded-pill  px-5'>Add Item</button>
+            </div>
             <Table responsive>
                 <thead>
                     <tr>
@@ -58,7 +68,7 @@ const ManageItems = () => {
                                 <tr>
                                     <td><img className='rounded-circle w-25' src={item?.picture} alt="" /></td>
                                     <td>{item?.name}</td>
-                                    <td>{item?.price}</td>
+                                    <td>${item?.price}</td>
                                     <td>{item?.quantity}</td>
                                     <td>{item?.supplierName}</td>
                                     <td>{item?.about.slice(0, 50)}...</td>
