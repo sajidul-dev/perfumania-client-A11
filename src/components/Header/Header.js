@@ -13,7 +13,7 @@ const Header = () => {
     }
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="lg" bg="dark" sticky='top' variant="dark">
                 <Container>
                     <NavLink to='/'
                         className='me-3'

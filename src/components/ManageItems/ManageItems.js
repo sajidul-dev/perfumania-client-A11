@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Item from '../Item/Item';
+import ItemsTable from '../Table/ItemsTable';
+import SingleItem from './SingleItem';
 
 const ManageItems = () => {
     const [allItems, setAllItems] = useState([])
@@ -13,9 +14,10 @@ const ManageItems = () => {
 
     return (
         <div className='row container mx-auto mt-5'>
-            {allItems.map(item => <Item key={item._id}
-                item={item}
-            ></Item>)}
+            {
+                allItems.map(item => <ItemsTable key={item._id} item={item}></ItemsTable>)
+            }
+            {/* <ItemsTable></ItemsTable> */}
         </div>
     );
 };

@@ -8,7 +8,7 @@ const Banner = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGZhc2hpb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                        src="https://i.ibb.co/rtNXPft/banner-1.jpg"
                         alt="First slide"
                     />
                     <Carousel.Caption>
@@ -19,7 +19,7 @@ const Banner = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGZhc2hpb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                        src="https://i.ibb.co/WtQxPzm/banner-2.jpg"
                         alt="Second slide"
                     />
                     <Carousel.Caption>
@@ -30,7 +30,7 @@ const Banner = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGZhc2hpb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                        src="https://i.ibb.co/BgPc3sM/banner-3.jpg"
                         alt="Third slide"
                     />
                     <Carousel.Caption>
