@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
+import './ItemDetails.css'
 
 const ItemDetails = () => {
     const quantityRef = useRef('')
@@ -56,23 +57,35 @@ const ItemDetails = () => {
 
     }
     return (
-        <div className='text-center'>
-            <h1>Hello</h1>
-            <img src={item.picture} alt="" />
-            <h3>Name: {item.name}</h3>
-            <p>ID: {item._id}</p>
-            <p>Quantity: {item.quantity}</p>
-            <button onClick={() => handleDelivered(item._id)} className='btn btn-primary'>Delivered</button>
+        <div className='container d-flex mt-5 justify-content-center align-items-center'>
+            <div className=''>
+                <img src={item.picture} alt="" />
+            </div>
+            <div className='p-5 '>
+                <h3>Name: {item.name}</h3>
+                <div className='d-flex'>
+                    <div className=''>
+                        <h5 className='text-center'>Supplier</h5>
+                        <h4 className=' especial-text'>{item.supplierName}</h4>
 
 
+                    </div>
+                    <div className='ms-3'>
+                        <h5>Quantity</h5>
+                        <h4 className='text-center especial-text'>{item?.quantity}</h4>
+                    </div>
+                </div>
+                <button onClick={() => handleDelivered(item._id)} className='btn btn-primary mt-3'>Delivered</button>
+                <form className=' ' onSubmit={addQuantity}>
 
-            <form className='my-5' onSubmit={addQuantity}>
-                <label htmlFor="quantity">Restock {item.name}</label>
-                <br />
-                <input className='rounded p-2' ref={quantityRef} type="number" name="quantity" placeholder='Enter Quantity' />
-                <br />
-                <input className='my-2' type="submit" value="ADD" />
-            </form>
+                    <br />
+                    <input className='rounded p-2' ref={quantityRef} type="number" name="quantity" placeholder='Enter Quantity' />
+                    <br />
+                    <input className='my-2' type="submit" value="ADD" />
+                </form>
+            </div>
+
+
 
 
         </div>
