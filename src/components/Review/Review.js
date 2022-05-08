@@ -5,7 +5,7 @@ import './Review.css'
 const Review = () => {
     return (
         <div className='container mt-5'>
-            <h3 className='mb-5'>THE TRUST FROM OUT CLIENTS</h3>
+            <h3 className='mb-5'>THE TRUST FROM OUR CLIENTS</h3>
             <div className='row g-5'>
                 <div className='col-lg-4 review'>
                     <div className='review-section w-75 p-4'>

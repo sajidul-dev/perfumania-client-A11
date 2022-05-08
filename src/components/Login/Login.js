@@ -5,6 +5,7 @@ import { useSignInWithEmailAndPassword, useSendPasswordResetEmail } from 'react-
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const Login = () => {
     const emailRef = useRef('')
@@ -24,17 +25,19 @@ const Login = () => {
         auth
     );
 
-    const handleLogin = e => {
+    const handleLogin = async e => {
         e.preventDefault()
         const email = emailRef.current.value
         const password = passwordRef.current.value
-        signInWithEmailAndPassword(email, password)
+        await signInWithEmailAndPassword(email, password)
+        const { data } = await axios.post('https://secure-retreat-97587.herokuapp.com/login', { email })
+        console.log(data);
     }
     if (loading) {
         return <Loading></Loading>
     }
     if (user) {
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
         toast.success('Login successful', { id: 'sajid' })
     }
 

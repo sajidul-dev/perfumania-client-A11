@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Signup = () => {
     const nameRef = useRef('')
@@ -44,8 +45,8 @@ const Signup = () => {
         toast.success('Sign Up successful', { id: 'sajid' })
     }
     return (
-        <div>
-            <Form onSubmit={handleSignup} className='w-50 mx-auto mt-5'>
+        <div className='container w-50 mx-auto mt-5'>
+            <Form onSubmit={handleSignup} >
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Name</Form.Label>
                     <Form.Control ref={nameRef} type="text" placeholder="Your Name" />
@@ -67,6 +68,7 @@ const Signup = () => {
                 </Button>
             </Form>
             <p className='text-center mt-3'>Already in Perfumania? <Link to='/login'>Login</Link></p>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };
