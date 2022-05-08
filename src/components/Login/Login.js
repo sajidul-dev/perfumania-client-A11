@@ -30,17 +30,10 @@ const Login = () => {
         const email = emailRef.current.value
         const password = passwordRef.current.value
         signInWithEmailAndPassword(email, password)
-        // const { data } = await axios.post('https://secure-retreat-97587.herokuapp.com/login', { email })
-        // console.log(data);
-        // fetch('https://secure-retreat-97587.herokuapp.com/login', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify({ email })
-        // })
-        //     .then(res => res.json())
-        //     .then(data => console.log(data))
+
+    }
+    if (error) {
+        return toast.error(error.message)
     }
     if (loading) {
         return <Loading></Loading>

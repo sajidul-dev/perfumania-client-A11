@@ -1,10 +1,20 @@
-# Getting Started with Create React App
+# Project Name: PERFUMANIA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Site [PERFUMANIA](https://warehouse-management-949b6.web.app/)
 
-## Available Scripts
+## Technology Used
 
-In the project directory, you can run:
+* React Bootstrap
+* React router dom
+* Firebase authentication
+* React firebase hooks
+* Fontawesome
+* React bootstrap icon
+* MongoDB
+* Noje Js
+* Express Js
+* Email/password authentication
+* Google Login
 
 ### `npm start`
 
