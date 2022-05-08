@@ -17,9 +17,9 @@ const MyItems = () => {
     return (
         <div>
             <h3 className='text-center my-5'>Your Item</h3>
-            <div className='row container g-5'>
+            <div className='row container g-5 mx-auto'>
                 {
-                    userItem ? userItem.map(item => <Item key={item?._id} item={item}></Item>) : <h2>Please Add Somthing</h2>
+                    userItem.length === 0 ? <h2 className='text-center text-info'>Please Add Something !!</h2> : userItem.map(item => <Item key={item?._id} item={item}></Item>)
                 }
             </div>
         </div>

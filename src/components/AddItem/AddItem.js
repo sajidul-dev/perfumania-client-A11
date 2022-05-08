@@ -6,15 +6,12 @@ import './AddItem.css'
 
 const AddItem = () => {
     const [user] = useAuthState(auth)
-    // const nameRef=useRef()
-    // const emailRef=useRef()
     const productNameRef = useRef()
     const photoURLRef = useRef()
     const descriptionRef = useRef()
     const priceRef = useRef()
     const quantityRef = useRef()
     const supplierRef = useRef()
-
 
     const handleAddItem = e => {
         e.preventDefault()
@@ -31,6 +28,7 @@ const AddItem = () => {
         fetch(url, {
             method: "POST",
             headers: {
+                'authorization': `${user.email} ${localStorage.getItem('accessToken')}`,
                 "content-type": "application/json"
             },
             body: JSON.stringify(newItem)

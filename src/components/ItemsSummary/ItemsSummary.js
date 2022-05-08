@@ -1,8 +1,7 @@
-import { faBottleDroplet, faFireFlameCurved, faMoneyBill, faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faBottleDroplet, faFireFlameCurved, faMoneyBill, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import './ItemsSummary.css'
-import CountUp from 'react-countup';
 
 const ItemsSummary = () => {
     return (
