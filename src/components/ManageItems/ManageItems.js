@@ -11,7 +11,7 @@ const ManageItems = () => {
 
     useEffect(() => {
 
-        fetch('https://secure-retreat-97587.herokuapp.com/allItems')
+        fetch('https://perfumania-server.onrender.com/allItems')
             .then(res => res.json())
             .then(data => {
                 setDataLoaded(true)
@@ -32,7 +32,7 @@ const ManageItems = () => {
     const handleDelete = (id) => {
         const confirm = window.confirm("Are you sure?")
         if (confirm) {
-            const url = `https://secure-retreat-97587.herokuapp.com/item/${id}`
+            const url = `https://perfumania-server.onrender.com/item/${id}`
             fetch(url, {
                 method: 'DELETE',
             })

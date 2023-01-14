@@ -9,7 +9,7 @@ const MyItems = () => {
 
     useEffect(() => {
         const email = user?.email
-        const url = `https://secure-retreat-97587.herokuapp.com/myitems?email=${email}`
+        const url = `https://perfumania-server.onrender.com/myitems?email=${email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setUserItem(data))

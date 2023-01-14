@@ -8,7 +8,7 @@ const Items = () => {
     const [dataLoaded, setDataLoaded] = useState(false)
 
     useEffect(() => {
-        fetch('https://secure-retreat-97587.herokuapp.com/items')
+        fetch('https://perfumania-server.onrender.com/items')
             .then(res => res.json())
             .then(data => {
                 setDataLoaded(true)

@@ -41,7 +41,7 @@ const Login = () => {
     console.log(user);
     if (user) {
 
-        const url = 'https://secure-retreat-97587.herokuapp.com/login'
+        const url = 'https://perfumania-server.onrender.com/login'
 
         fetch(url, {
             method: 'POST',

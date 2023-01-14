@@ -24,7 +24,7 @@ const AddItem = () => {
         const supplierName = supplierRef.current.value
 
         const newItem = { email, name, price, picture, about, supplierName, quantity }
-        const url = 'https://secure-retreat-97587.herokuapp.com/addItem'
+        const url = 'https://perfumania-server.onrender.com/addItem'
         fetch(url, {
             method: "POST",
             headers: {

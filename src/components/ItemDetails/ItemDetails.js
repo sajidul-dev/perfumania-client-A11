@@ -8,7 +8,7 @@ const ItemDetails = () => {
     const { itemId } = useParams()
     const [item, setItem] = useState([])
     useEffect(() => {
-        const url = `https://secure-retreat-97587.herokuapp.com/item/${itemId}`
+        const url = `https://perfumania-server.onrender.com/item/${itemId}`
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data))
@@ -18,7 +18,7 @@ const ItemDetails = () => {
         const itemQuantity = item.quantity
         const updateQuantity = parseInt(itemQuantity) - 1
         const quantity = { ...item, quantity: updateQuantity }
-        const url = `https://secure-retreat-97587.herokuapp.com/item/${id}`
+        const url = `https://perfumania-server.onrender.com/item/${id}`
         fetch(url, {
             method: "PUT",
             headers: {
@@ -37,7 +37,7 @@ const ItemDetails = () => {
         const itemQuantity = item.quantity
         const updateQuantity = parseInt(itemQuantity) + parseInt(newQuantity)
         const quantity = { ...item, quantity: updateQuantity }
-        const url = `https://secure-retreat-97587.herokuapp.com/item/${item._id}`
+        const url = `https://perfumania-server.onrender.com/item/${item._id}`
         fetch(url, {
             method: "PUT",
             headers: {
